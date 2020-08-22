@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Objects;
@@ -28,21 +27,17 @@ public class PlayAgainActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
         Bundle b = getIntent().getExtras();
         assert b != null;
         String obtainedScore = b.getString("obtained");
         String totalScore = b.getString("total");
 
-        Button playAgainBtn = findViewById(R.id.playAgainbtnid);
+        TextView obtainedScoreTextView, totalScoreTextView;
 
-        TextView obtainedScoretextView, totalScoretextView;
+        obtainedScoreTextView = findViewById(R.id.obtainedScoreid);
+        totalScoreTextView = findViewById(R.id.totalScoreid);
 
-        obtainedScoretextView = findViewById(R.id.obtainedScoreid);
-        totalScoretextView = findViewById(R.id.totalScoreid);
-
-        obtainedScoretextView.setText(obtainedScore);
-        totalScoretextView.setText(totalScore);
-
+        obtainedScoreTextView.setText(obtainedScore);
+        totalScoreTextView.setText(totalScore);
     }
 }
