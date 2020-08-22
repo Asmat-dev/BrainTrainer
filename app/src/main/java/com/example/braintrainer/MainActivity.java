@@ -21,7 +21,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView equationTextview, obtainedScoreTextview, correctQScoreTextview, timeLeft;
+    private TextView equationTextView, obtainedScoreTextView, correctQScoreTextView, timeLeft;
     private Button btn0, btn1, btn2, btn3;
     private ImageView tickImage;
 
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
 
     private ArrayList<Integer> answers = new ArrayList<>();
-
 
     //Function to Play the game Again
     public void playAgain(){
@@ -80,14 +79,14 @@ public class MainActivity extends AppCompatActivity {
         btn2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.slategrey));
         btn3.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.slategrey));
 
-        equationTextview.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.slategrey));
+        equationTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.slategrey));
         tickImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_tick));
 
-        correctQScoreTextview.animate().alpha(0).setDuration(600);
+        correctQScoreTextView.animate().alpha(0).setDuration(600);
 
     }
 
-    //Function to delay a task
+    //Delay the task
     public void delayTask(){
 
         new Timer().schedule(
@@ -95,13 +94,11 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void run(){
-
                         runOnUiThread(new Runnable() {
 
                             @Override
                             public void run() {
 
-                                // Stuff that updates the UI
                                 updateUIElements();
                                 newQuestion();
 
@@ -163,16 +160,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        equationTextview.setText(equation);
+        equationTextView.setText(equation);
         btn0.setText(String.format(Locale.getDefault(), "%d", answers.get(0)));
         btn1.setText(String.format(Locale.getDefault(), "%d", answers.get(1)));
         btn2.setText(String.format(Locale.getDefault(), "%d", answers.get(2)));
         btn3.setText(String.format(Locale.getDefault(), "%d", answers.get(3)));
-
-//        btn0.setText(Integer.toString(answers.get(0)));
-//        btn1.setText(Integer.toString(answers.get(1)));
-//        btn2.setText(Integer.toString(answers.get(2)));
-//        btn3.setText(Integer.toString(answers.get(3)));
 
     }
 
@@ -265,9 +257,9 @@ public class MainActivity extends AppCompatActivity {
         if (Integer.toString(locationOfCorrectAnswer).equals(view.getTag().toString())){
 
             view.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.green));
-            equationTextview.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+            equationTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
             tickImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_tickgreen));
-            correctQScoreTextview.animate().alpha(1).setDuration(500);
+            correctQScoreTextView.animate().alpha(1).setDuration(500);
             delayTask();
 
             obtainedScore = obtainedScore + 40;
@@ -275,13 +267,12 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
             view.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.color.red));
-            equationTextview.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
+            equationTextView.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
             tickImage.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_tickred));
             delayTask();
         }
         totalScore = totalScore + 40;
-//        obtainedScoreTextview.setText(Integer.toString(obtainedScore));
-        obtainedScoreTextview.setText(String.format(Locale.getDefault(), "%d", obtainedScore));
+        obtainedScoreTextView.setText(String.format(Locale.getDefault(), "%d", obtainedScore));
     }
 
     @Override
@@ -294,9 +285,9 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.clocktick);
 
         //Getting Views
-        equationTextview = findViewById(R.id.equationtextid);
-        obtainedScoreTextview = findViewById(R.id.obtainedpointsid);
-        correctQScoreTextview = findViewById(R.id.correctquestionscore);
+        equationTextView = findViewById(R.id.equationtextid);
+        obtainedScoreTextView = findViewById(R.id.obtainedpointsid);
+        correctQScoreTextView = findViewById(R.id.correctquestionscore);
         timeLeft = findViewById(R.id.timeleftid);
 
         tickImage = findViewById(R.id.tickimageid);
