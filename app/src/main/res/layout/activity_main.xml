@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/btn0"
+                android:tag="0"
+                android:textSize="60sp"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:textColor="@color/white"
+                android:background="@drawable/rounderbutton_2"
+                android:layout_marginEnd="5dp"
+                android:text="@string/_5"
+                android:onClick="chooseAnswer"/>
+
+            <Button
+                android:id="@+id/btn1"
+                android:tag="1"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:textColor="@color/white"
+                android:background="@drawable/rounderbutton_2"
+                android:layout_weight="1"
+                android:textSize="60sp"
+                android:text="@string/_5"
+                android:onClick="chooseAnswer"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn2"
+                android:tag="2"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:textColor="@color/white"
+                android:background="@drawable/rounderbutton_2"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:textSize="60sp"
+                android:text="@string/_5"
+                android:onClick="chooseAnswer"/>
+
+            <Button
+                android:id="@+id/btn3"
+                android:tag="3"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                style="@style/Widget.AppCompat.ButtonBar"
+                android:textColor="@color/white"
+                android:background="@drawable/rounderbutton_2"
+                android:layout_weight="1"
+                android:textSize="60sp"
+                android:text="@string/_5"
+                android:onClick="chooseAnswer"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/equationtextid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_12_20"
+        android:textSize="40sp"
+        android:textColor="@color/slategrey"
+        android:layout_marginBottom="170dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/hourglassid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_hour_glass_another" />
+
+    <TextView
+        android:id="@+id/timeleftid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/slategrey"
+        android:text="@string/_12"
+        android:textSize="28sp"
+        app:layout_constraintStart_toEndOf="@+id/hourglassid"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cupimageid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/icon"
+        app:layout_constraintEnd_toStartOf="@+id/obtainedpointsid"
+        app:layout_constraintTop_toTopOf="@+id/hourglassid"
+        app:srcCompat="@drawable/ic_cup" />
+
+    <TextView
+        android:id="@+id/obtainedpointsid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:textColor="@color/slategrey"
+        android:text="@string/_0"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/tickimageid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@id/equationtextid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_tick"
+        android:contentDescription="@string/icon"/>
+
+    <TextView
+        android:id="@+id/correctquestionscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/green"
+        android:alpha="0"
+        android:text="@string/_40"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/cupimageid"
+        app:layout_constraintTop_toBottomOf="@+id/cupimageid" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

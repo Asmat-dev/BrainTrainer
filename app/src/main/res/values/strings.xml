@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Brain Trainer</string>
+    <string name="_5">5</string>
+    <string name="_12_20">12 + 20 = ?</string>
+    <string name="_12">12</string>
+    <string name="_180">180</string>
+    <string name="_40">+40</string>
+    <string name="icon">Icon</string>
+    <string name="brain_trainer">Brain Trainer</string>
+    <string name="_0">0</string>
+    <string name="s">S</string>
+    <string name="play_again">Play Again</string>
+</resources>
