@@ -13,11 +13,7 @@ public class PlayAgainActivity extends AppCompatActivity {
 
 
     public void playAgain(View v) {
-
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        finish();
-
+        again();
     }
 
     @Override
@@ -39,5 +35,11 @@ public class PlayAgainActivity extends AppCompatActivity {
 
         obtainedScoreTextView.setText(obtainedScore);
         totalScoreTextView.setText(totalScore);
+    }
+
+    public void again() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
