@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     //Function to Play the game Again
     public void playAgain(){
 
-        mediaPlayer.start();
+//        mediaPlayer.start();
         newQuestion();
         new CountDownTimer(30100, 1000){
 
@@ -49,13 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 timeLeft.setText(timeLeftString);
             }
-
             @Override
             public void onFinish() {
                 mediaPlayer.stop();
                 timeLeft.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.slategrey));
                 delayTask();
-
 
                 Intent intent = new Intent(getApplicationContext(), PlayAgainActivity.class);
                 intent.putExtra("obtained", String.format(Locale.getDefault(), "%d", obtainedScore));
@@ -282,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.clocktick);
+//        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.clocktick);
 
         //Getting Views
         equationTextView = findViewById(R.id.equationtextid);
@@ -297,5 +296,24 @@ public class MainActivity extends AppCompatActivity {
         btn3 = findViewById(R.id.btn3);
 
         playAgain();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("asdsdd", "onPause: ");
+        mediaPlayer.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mediaPlayer == null){
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.clocktick);
+        }
+        Log.i("asdsdd", "onResume: ");
+//        assert mediaPlayer != null;
+        mediaPlayer.start();
     }
 }
